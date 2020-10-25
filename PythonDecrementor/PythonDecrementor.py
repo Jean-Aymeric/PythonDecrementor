@@ -1,18 +1,20 @@
-digitsInString = input( "Entrez une liste de chiffres :" )
-digitsInTab = []
+import time
 
-for i in range( len( digitsInString ) ) :
-    if (digitsInString[i].isdigit()) :
-        digitsInTab.append( int(digitsInString[i] ))
+charactersInString = input( "Entrez une liste de chiffres :" )
+charactersInTab = []
+
+for i in range( len( charactersInString ) ) :
+    charactersInTab.append( charactersInString[i] )
 
 atLeastOneDigitLeft = True
 while (atLeastOneDigitLeft) :
     atLeastOneDigitLeft = False
-    for i in range (len(digitsInTab)) :
-        print (str(digitsInTab[i]), end='')
-        if (digitsInTab[i] == 0 or digitsInTab[i] == " ") :
-             digitsInTab[i] = " "
+    for i in range( len( charactersInTab ) ) :
+        print( charactersInTab[i], end='' )
+        if (ord( charactersInTab[i] ) >+ 127 or charactersInTab[i] == " ") :
+             charactersInTab[i] = " "
         else :
             atLeastOneDigitLeft = True
-            digitsInTab[i] -= 1 
+            charactersInTab[i] = chr( ord( charactersInTab[i] ) - 1 ) 
     print()
+    time.sleep(0.1)
